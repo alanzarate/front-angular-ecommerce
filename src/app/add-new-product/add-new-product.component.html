@@ -55,7 +55,46 @@
 
             </div>
             <div class="col-6">
-                Image Area
+                <div>
+
+                    <div class="dropzone"
+                        appDrag
+                        (files)="fileDropped($event)"
+                    >
+
+                        <div class="text-wrapper">
+                           <div class="centered">
+                            Arrastra y suelta tus archivos o 
+                            <a (click)="selectFile.click()">busca un archivo</a> 
+                           </div>
+                        </div>
+
+                    </div>
+
+                    <input  
+                        class="input-file"
+                        type="file" 
+                        multiple 
+                        value="select" 
+                        #selectFile
+                        (change)="onFileSelected($event)"
+                        >
+                </div>
+                <div class="mt-5">
+                    <div class="row">
+                        <mat-grid-list cols="4" rowHeight="1:1">
+                            <mat-grid-tile *ngFor="let file of product.productImages; let i=index;">
+                                <div style="position: relative;">
+                                    
+                                    <span class="btn-remove-image" (click)="removeImages(i)"><mat-icon>delete</mat-icon></span>
+                                    <img [src]="file.url" class="img-tag">
+                                </div>
+
+                            </mat-grid-tile>
+
+                        </mat-grid-list>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

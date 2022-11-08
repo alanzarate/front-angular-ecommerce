@@ -1,0 +1,53 @@
+mat-grid-tile{
+    border: 1px solid #eee;
+}
+
+.img-tag{
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+     
+}
+.btn-remove-image{
+    position: absolute;
+    cursor: pointer;
+    top: -10px;
+    right: -10px;
+    padding-top: 3px;
+    background-color: #f00;
+    color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px; 
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.dropzone{
+    height: 150px;
+    min-width: 100px;
+    display: table;
+    background-color: rgba(238, 238, 238, 0.829);
+    width: 300px;
+    border: dashed 1px #aaa;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-wrapper{
+    display: table-cell;
+    vertical-align: middle;
+}
+.centered{
+    text-align: center;
+}
+.centered a{
+    color: rgb(0, 0, 255);
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+.input-file{
+    display: none;
+}
