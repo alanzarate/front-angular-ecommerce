@@ -45,7 +45,8 @@
     
                     <div align="end">
                         <button mat-stroked-button class="m-2">Limpiar </button> 
-                        <button mat-stroked-button color="accent" type="submit">Agregar producto</button>
+                        <button *ngIf="isNewProduct" mat-stroked-button color="accent" type="submit">Agregar producto</button>
+                        <button *ngIf="!isNewProduct" mat-stroked-button color="primary" type="submit">Editar producto</button>
                     </div>
                 </form>
                         
