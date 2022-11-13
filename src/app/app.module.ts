@@ -27,7 +27,8 @@ import { DragDirective } from './drag.directive';
 import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ShowProdImagesDialogComponent } from './show-prod-images-dialog/show-prod-images-dialog.component'; 
+import { ShowProdImagesDialogComponent } from './show-prod-images-dialog/show-prod-images-dialog.component';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component'; 
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ShowProdImagesDialogComponent } from './show-prod-images-dialog/show-pr
     AddNewProductComponent,
     DragDirective,
     ShowProductDetailsComponent,
-    ShowProdImagesDialogComponent 
+    ShowProdImagesDialogComponent,
+    ProductViewDetailsComponent
   ],
   imports: [
     BrowserModule,
