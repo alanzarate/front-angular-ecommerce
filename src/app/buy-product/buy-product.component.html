@@ -1,0 +1,101 @@
+<div class="container mt-5">
+    <div class="card p-3">
+        <div class="row">
+            <div class="col-6">
+            
+                <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Nombre completo</mat-label>
+                        <input 
+                            placeholder="Ingresa tu nombre completo"
+                            matInput
+                            [(ngModel)] = "orderDetails.fullName"
+                            name="fullName"
+                            > 
+                    </mat-form-field>   
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Dirección de destino</mat-label>
+                        <input 
+                            placeholder="Ingresa una dirección de envio"
+                            matInput
+                            [(ngModel)] = "orderDetails.fullAddress"
+                            name="fullAddress"
+                            > 
+                    </mat-form-field>  
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Número de contacto</mat-label>
+                        <input 
+                            placeholder="Ingresa un numero de telefono"
+                            matInput
+                            [(ngModel)] = "orderDetails.contactNumber"
+                            name="contactNumber"
+                            > 
+                    </mat-form-field>  
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Número de respaldo</mat-label>
+                        <input 
+                            placeholder="Ingresa un numero de telefono"
+                            matInput
+                            [(ngModel)] = "orderDetails.alternativeContactNumber"
+                            name="alternativeContactNumber"
+                            > 
+                    </mat-form-field>  
+
+                    <div align="right">
+                        <button type="submit" mat-stroked-button color="primary">Ordenar</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-6">
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Monto</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                        <tr *ngFor="let product of productDetails"> 
+                            <td>{{ product.productName }}</td>
+                            <td>{{ product.productDiscountedPrice }}</td>
+                            <td>
+                                <select 
+                                #quantity
+                                class="form-select"
+                                [ngModel] = "getQuantityForProduct(product.productId)"
+                                (change)="onQuantityChange(product.productId, quantity.value)"
+                                >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+                                
+                            </td>
+                            <td>{{ getCalculatedTotal(product.productId, product.productDiscountedPrice) }}</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total: </td>
+                            <td>{{ getCalculatedGrandTotal() }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

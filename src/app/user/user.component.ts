@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -7,14 +8,17 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
   message:string ="";
   constructor(
-    private userService: UserService
-  
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
-    this.forUser();
+ 
+    this.message =  this.activatedRoute.snapshot.paramMap.get('completeName')!;
+    
   }
   forUser() {
     this.userService.forUser().subscribe(

@@ -1,1 +1,49 @@
-<p>product-view-details works!</p>
+<div class="own-container mt-5">
+    <div class="row">
+
+        <div class="col-6">
+
+            <div class="card image-container">
+                <img [src]="product.productImages[selectedProdIndex].url" alt="" class="product-zoom-image">
+            </div>
+
+            <div class="mt-2">
+                <mat-grid-list cols="3" gutterSize="10" rowHeight="1:1">
+                    <mat-grid-tile *ngFor="let file of product.productImages; let i = index;" (click)="changeIndex(i)" style="border: 1px solid #D3d3d3; cursor: pointer;">
+                        <img [src]="file.url" style="height: 90%; width: 90%; object-fit: cover;">
+                    </mat-grid-tile>
+               </mat-grid-list>
+            </div>
+           
+        </div>
+        <div class="col-6">
+           <div class="product-information">
+                <div class="mt-3">
+                    <h2>{{ product.productName }}</h2>
+                </div>
+                <div class="mt-3">
+                    Descripción: <br>
+                    {{ product.productDescription }}
+                </div>
+
+                <div>
+                    <b>
+                        Bs. {{ product.productDiscountedPrice }}
+                    </b>
+                    &nbsp;&nbsp;&nbsp;
+                    <b style="text-decoration: line-through; font-size: small;">
+                        Bs. {{ product.productActualPrice }}
+                    </b>
+                </div>
+
+                <div class="mt-5 text-center">
+                    <button mat-raised-button color="accent" 
+                        style="width: 200px;" 
+                        (click)="buyProduct(product.productId)"
+                    >Comprar ahora</button>
+                </div>
+           </div>
+        </div>
+    </div>
+
+</div>

@@ -22,14 +22,19 @@ export class LoginComponent implements OnInit {
   login(loginForm: NgForm) {
     this.userService.login(loginForm.value).subscribe(
       (response: any) => {
+        console.log(response);
+        
         this.userAuthService.setRoles(response.user.role);
         this.userAuthService.setToken(response.jwtToken);
 
         const role = response.user.role[0].roleName;
         if (role === 'Admin') {
-          this.router.navigate(['/admin']);
+          let completeMes:string = response.user.userFirstName + " "+ response.user.userLastName;
+          this.router.navigate(['/admin',  {completeName:completeMes }]);
         } else {
-          this.router.navigate(['/user']);
+          let completeMes:string = response.user.userFirstName + " "+ response.user.userLastName;
+         
+          this.router.navigate(['/user', {completeName:completeMes }]);
         }
       },
       (error) => {

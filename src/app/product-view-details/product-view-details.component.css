@@ -1,0 +1,18 @@
+.product-information{
+    font-size: medium;
+}
+.own-container{
+    padding: 0px 70px;
+}
+.image-container{
+    height: 500px;
+    position: relative;
+}
+.product-zoom-image{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+
+    
+    
+}
