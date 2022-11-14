@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   login(loginForm: NgForm) {
     this.userService.login(loginForm.value).subscribe(
       (response: any) => {
+        console.log("Los tokens que llegan");
         console.log(response);
         
         this.userAuthService.setRoles(response.user.role);
